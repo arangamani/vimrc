@@ -85,6 +85,9 @@ autocmd BufReadPost *.odt,*.odp silent %!odt2txt "%"
 autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
 autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+autocmd BufNewFile,BufRead Berksfile set filetype=ruby
 
 " Turn on autocomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete

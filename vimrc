@@ -26,7 +26,7 @@ set fileformat=unix
 
 "set guifont=Monospace\ 9
 set guifont=Droid\ Sans\ Mono\ Slashed\ 9
-set mouse=a
+" set mouse=a
 
 set showcmd
 set wildmenu
@@ -36,20 +36,21 @@ set backspace=indent,eol,start
 set showmode
 set scrolloff=3
 set laststatus=2
+set list listchars=tab:\ \ ,trail:·
 
 " These are annoying and I never use them anyway
 set nobackup
 set noswapfile
 
 set wrap
-set textwidth=79
+set textwidth=119
 set formatoptions=qrn1
 
 set formatoptions+=l
 " Not supported until version 7.3
 "set colorcolumn=85
 if version >= 703
-    set colorcolumn=80
+    set colorcolumn=120
 endif
 " turn on whitespace
 

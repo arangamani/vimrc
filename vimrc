@@ -26,7 +26,7 @@ set fileformat=unix
 
 "set guifont=Monospace\ 9
 set guifont=Droid\ Sans\ Mono\ Slashed\ 9
-set mouse=a
+" set mouse=a
 
 set showcmd
 set wildmenu
@@ -36,6 +36,7 @@ set backspace=indent,eol,start
 set showmode
 set scrolloff=3
 set laststatus=2
+set list listchars=tab:\ \ ,trail:·
 
 " These are annoying and I never use them anyway
 set nobackup
@@ -90,6 +91,9 @@ autocmd BufReadPost *.odt,*.odp silent %!odt2txt "%"
 autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
 autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+autocmd BufNewFile,BufRead Berksfile set filetype=ruby
 
 " Turn on autocomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete

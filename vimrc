@@ -1,4 +1,4 @@
-let $VIMRUNTIME = "/usr/share/vim/vim74"
+let $VIMRUNTIME = "/opt/local/share/vim/vim74"
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
 call pathogen#infect()
 filetype off
@@ -42,17 +42,20 @@ set nobackup
 set noswapfile
 
 set wrap
-set textwidth=79
+set textwidth=119
 set formatoptions=qrn1
 
 set formatoptions+=l
 " Not supported until version 7.3
 "set colorcolumn=85
 if version >= 703
-    set colorcolumn=80
+    set colorcolumn=120
 endif
 " turn on whitespace
 
+let mapleader = ","
+nmap <leader>ne :NERDTree<cr>
+nmap <leader>nt :NERDTreeToggle<cr>
 
 map <F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <F2> :NERDTreeToggle<cr>

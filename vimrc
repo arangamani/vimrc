@@ -26,7 +26,7 @@ set fileformat=unix
 
 "set guifont=Monospace\ 9
 set guifont=Droid\ Sans\ Mono\ Slashed\ 9
-" set mouse=a
+set mouse=a
 
 set showcmd
 set wildmenu

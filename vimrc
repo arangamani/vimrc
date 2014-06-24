@@ -1,5 +1,5 @@
 let $VIMRUNTIME = "/usr/local/share/vim/vim74"
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
+set runtimepath^=~/.vim,$VIM/vimfiles,$VIMRUNTIME,~/.vim/bundle/ctrlp.vim
 call pathogen#infect()
 filetype off
 filetype plugin indent on
@@ -53,15 +53,20 @@ if version >= 703
     set colorcolumn=120
 endif
 " turn on whitespace
+let g:ctrlp_custom_ignore="/\(.log$\|public\/\)"
+let g:NERDTreeDirArrows=1
 
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let mapleader = ","
-nmap <leader>ne :NERDTree<cr>
+" nmap <leader>ne :NERDTree<cr>
 nmap <leader>nt :NERDTreeToggle<cr>
 
 map <F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <F2> :NERDTreeToggle<cr>
 map <F3> :TlistToggle<cr>
 map <C-c> "+y<CR>
+map <C-e> :CtrlP<CR>
 let NERDTreeIgnore = ['\.pyc$','\.o$']
 " line indent
 nmap <D-[> <<
@@ -82,6 +87,16 @@ if has("gui_running")
         set transparency=0
         set guifont=Consolas:h11
     endif
+endif
+
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
 endif
 
 filetype plugin on

@@ -8,6 +8,7 @@ set modelines=0
 syntax on
 set t_Co=256
 colorscheme molokai
+let mapleader = ","
 
 set number
 set shiftwidth=4
@@ -36,11 +37,20 @@ set backspace=indent,eol,start
 set showmode
 set scrolloff=3
 set laststatus=2
+
+" Show characters on trailing while spaces
 set list listchars=tab:\ \ ,trail:·
 
+" Remove trailing spaces
+autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.idea/*,.idea,*/.idea,*/.idea/*
+
 " These are annoying and I never use them anyway
-set nobackup
-set noswapfile
+" set backupdir=~/.vim/backup//
+" set backup
+" set nobackup
+" set noswapfile
 
 set wrap
 set textwidth=119
@@ -56,9 +66,25 @@ endif
 let g:ctrlp_custom_ignore="/\(.log$\|public\/\)"
 let g:NERDTreeDirArrows=1
 
+" Map <Leader>ff to display all lines with keyword under cursor
+" and ask which one to jump to
+nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+" Force saving when needing to sudo first"
+cnoreabbrev <expr> w!!
+  \((getcmdtype() == ':' && getcmdline() == 'w!!')
+  \?('!sudo tee % >/dev/null'):('w!!'))
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let mapleader = ","
 " nmap <leader>ne :NERDTree<cr>
 nmap <leader>nt :NERDTreeToggle<cr>
 
@@ -79,7 +105,8 @@ if has("gui_running")
     "set lines=30
     "set columns=80
     set cursorline
-    "colorscheme wombat
+    set guifont=UbuntuMono:h12
+    colorscheme wombat
     if has("gui_gtk2")
     elseif has("gui_win32")
     else
@@ -204,7 +231,6 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
-
 " Syntastic
 "SyntasticDisable
 set statusline+=%#warningmsg#
@@ -280,3 +306,17 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'Valloric/YouCompleteMe'
 filetype plugin indent on
+
+" Enable omni completion.
+" Strip whitespace
+function! StripTrailingWhitespace()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " do the business:
+  %s/\s\+$//e
+  " clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction

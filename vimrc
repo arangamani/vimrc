@@ -49,8 +49,8 @@ autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,ruby autocmd BufW
 " These are annoying and I never use them anyway
 " set backupdir=~/.vim/backup//
 " set backup
-" set nobackup
-" set noswapfile
+set nobackup
+set noswapfile
 
 set wrap
 set textwidth=119

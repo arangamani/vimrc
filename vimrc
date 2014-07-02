@@ -19,7 +19,6 @@ set expandtab
 set smartindent
 set autoindent
 set showmatch
-syntax on
 
 set ruler
 set nocompatible

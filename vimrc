@@ -91,6 +91,7 @@ map <F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <F2> :NERDTreeToggle<cr>
 map <F3> :TlistToggle<cr>
 map <C-c> "+y<CR>
+map <C-e> :CtrlPMRUFiles<CR>
 let NERDTreeIgnore = ['\.pyc$','\.o$']
 " line indent
 nmap <D-[> <<

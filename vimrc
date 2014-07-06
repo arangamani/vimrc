@@ -13,6 +13,9 @@ call vundle#rc()
 
 source ~/.vim/startup/bundles.vim
 
+" Powerline status line - fancy!
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+
 filetype plugin indent on
 
 
@@ -242,34 +245,21 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1
 
-" Omnicomplete
-set ofu=syntaxcomplete#Complete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
 " Syntastic
 "SyntasticDisable
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 let g:syntastic_enable_signs=1
 "let g:syntastic_auto_jump=1
 "let g:syntastic_auto_loc_list=1
 
-set statusline+=%{fugitive#statusline()}
-set statusline+=\ %f%R%=%m[row\ %l/%L,\ column\ %v\ (%c)]
 autocmd bufwritepost .vimrc source $MYVIMRC
 
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
 " Neocomplcache
 "let g:neocomplcache_enable_at_startup = 1

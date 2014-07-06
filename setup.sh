@@ -21,7 +21,10 @@ else
 fi
 
 echo "Installing all the bundles with vundle..."
-vim -u $HOME/.vimr/startup/bundles.vim +BundleInstall! +BundleClean +qall
+hell=$SHELL
+export SHELL="/bin/sh"
+vim -u $HOME/.vim/startup/bundles.vim +BundleInstall! +BundleClean +qall
+export SHELL=$hell
 
 if [ -f ~/.vimrc ];
 then

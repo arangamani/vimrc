@@ -1,9 +1,21 @@
-let $VIMRUNTIME = "/usr/local/share/vim/vim74"
-set runtimepath^=~/.vim,$VIM/vimfiles,$VIMRUNTIME,~/.vim/bundle/ctrlp.vim
-call pathogen#infect()
-filetype off
-filetype plugin indent on
+" let $VIMRUNTIME = "/usr/local/share/vim/vim74"
+" set runtimepath^=~/.vim,$VIM/vimfiles,$VIMRUNTIME,~/.vim/bundle/ctrlp.vim
 set nocompatible
+set rtp+=~/.vim/bundle/vundle
+" call pathogen#infect()
+filetype on
+" filetype plugin indent on
+
+"YouCompleteMe
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+source ~/.vim/startup/bundles.vim
+
+filetype plugin indent on
+
+
 set modelines=0
 syntax on
 set t_Co=256
@@ -25,7 +37,6 @@ set nocompatible
 set fileformat=unix
 
 "set guifont=Monospace\ 9
-set guifont=Droid\ Sans\ Mono\ Slashed\ 9
 set mouse=a
 
 set showcmd
@@ -36,6 +47,15 @@ set backspace=indent,eol,start
 set showmode
 set scrolloff=3
 set laststatus=2
+
+" Prevent slow scrolling of long lines
+set synmaxcol=200
+
+" Speed up vim
+set ttyfast
+set ttyscroll=3
+set lazyredraw " to avoid scrolling problems
+set re=1
 
 " Show characters on trailing while spaces
 set list listchars=tab:\ \ ,trail:·
@@ -99,19 +119,28 @@ nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
 
+" Prevent slow scrolling of long lines
+set synmaxcol=200
+
+" Speed up vim
+set ttyfast
+set ttyscroll=3
+set lazyredraw " to avoid scrolling problems
+set re=1
+
 if has("gui_running")
     set guioptions-=T "no toolbar for gui
     "set lines=30
     "set columns=80
     set cursorline
-    set guifont=UbuntuMono:h12
+    set guifont=Ubuntu\ Mono:h12
     colorscheme wombat
     if has("gui_gtk2")
     elseif has("gui_win32")
     else
         let do_syntax_sel_menu = 1|runtime! synmenu.vim
         set transparency=0
-        set guifont=Consolas:h11
+        set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
     endif
 endif
 
@@ -124,9 +153,6 @@ if has("multi_byte")
   "setglobal bomb
   set fileencodings=ucs-bom,utf-8,latin1
 endif
-
-filetype plugin on
-filetype indent on
 
 autocmd BufReadPost *.doc silent %!antiword "%"
 autocmd BufReadPost *.odt,*.odp silent %!odt2txt "%"
@@ -243,15 +269,11 @@ set statusline+=%{fugitive#statusline()}
 set statusline+=\ %f%R%=%m[row\ %l/%L,\ column\ %v\ (%c)]
 autocmd bufwritepost .vimrc source $MYVIMRC
 
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+
 " Neocomplcache
 "let g:neocomplcache_enable_at_startup = 1
 
-"YouCompleteMe
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'Valloric/YouCompleteMe'
-filetype plugin indent on
 
 " Rename tabs to show tab number.
 " (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
@@ -299,12 +321,6 @@ if exists("+showtabline")
     set showtabline=1
     highlight link TabNum Special
 endif
-
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'Valloric/YouCompleteMe'
-filetype plugin indent on
 
 " Enable omni completion.
 " Strip whitespace

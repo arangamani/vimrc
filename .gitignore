@@ -1,1 +1,4 @@
 .netrwhist
+
+# Don't commit bundle into source control, let's manage the bundle with setup.sh and vundle.
+bundle/

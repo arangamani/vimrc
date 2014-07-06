@@ -1,12 +1,7 @@
-" let $VIMRUNTIME = "/usr/local/share/vim/vim74"
-" set runtimepath^=~/.vim,$VIM/vimfiles,$VIMRUNTIME,~/.vim/bundle/ctrlp.vim
 set nocompatible
 set rtp+=~/.vim/bundle/vundle
-" call pathogen#infect()
 filetype on
-" filetype plugin indent on
 
-"YouCompleteMe
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -22,6 +17,7 @@ filetype plugin indent on
 set modelines=0
 syntax on
 set t_Co=256
+" Use the molokai colorscheme -- inspired by the TextMate version
 colorscheme molokai
 let mapleader = ","
 
@@ -39,7 +35,7 @@ set ruler
 set nocompatible
 set fileformat=unix
 
-"set guifont=Monospace\ 9
+" Enable mouse mode
 set mouse=a
 
 set showcmd
@@ -82,11 +78,8 @@ set formatoptions+=l
 " Not supported until version 7.3
 "set colorcolumn=85
 if version >= 703
-    set colorcolumn=120
+  set colorcolumn=120
 endif
-" turn on whitespace
-let g:ctrlp_custom_ignore="/\(.log$\|public\/\)"
-let g:NERDTreeDirArrows=1
 
 " Map <Leader>ff to display all lines with keyword under cursor
 " and ask which one to jump to
@@ -105,17 +98,9 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
-autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" nmap <leader>ne :NERDTree<cr>
-nmap <leader>nt :NERDTreeToggle<cr>
-
 map <F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-map <F2> :NERDTreeToggle<cr>
 map <F3> :TlistToggle<cr>
 map <C-c> "+y<CR>
-map <C-e> :CtrlPMRUFiles<CR>
-let NERDTreeIgnore = ['\.pyc$','\.o$']
 " line indent
 nmap <D-[> <<
 nmap <D-]> >>
@@ -260,10 +245,8 @@ let g:syntastic_enable_signs=1
 
 autocmd bufwritepost .vimrc source $MYVIMRC
 
-
 " Neocomplcache
 "let g:neocomplcache_enable_at_startup = 1
-
 
 " Rename tabs to show tab number.
 " (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)

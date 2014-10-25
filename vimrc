@@ -9,7 +9,7 @@ call vundle#rc()
 source ~/.vim/startup/bundles.vim
 
 " Powerline status line - fancy!
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
 filetype plugin indent on
 
@@ -115,20 +115,21 @@ set ttyfast
 set ttyscroll=3
 set lazyredraw " to avoid scrolling problems
 set re=1
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
 
 if has("gui_running")
     set guioptions-=T "no toolbar for gui
     "set lines=30
     "set columns=80
     set cursorline
-    set guifont=Ubuntu\ Mono:h12
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
     colorscheme wombat
     if has("gui_gtk2")
     elseif has("gui_win32")
     else
         let do_syntax_sel_menu = 1|runtime! synmenu.vim
         set transparency=0
-        set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+        set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
     endif
 endif
 
@@ -233,6 +234,10 @@ let g:miniBufExplModSelTarget = 1
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
+
+nmap <leader>nt :NERDTreeToggle<cr>
+map <F2> :NERDTreeToggle<cr>
+map <leader>fd :NERDTreeFind<cr>
 
 " Syntastic
 "SyntasticDisable

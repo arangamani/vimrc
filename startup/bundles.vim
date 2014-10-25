@@ -13,8 +13,24 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-tbone'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-bundler'
+Bundle 'godlygeek/tabular'
+Bundle 'gcmt/taboo.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'majutsushi/tagbar'
+Bundle 'bling/vim-airline'
 
+set laststatus=2
+let g:airline_powerline_fonts = 1
+
+" Go support
+Bundle 'Blackrush/vim-gocode'
 
 " ====== Ctrl P =======
 Bundle 'kien/ctrlp.vim'
@@ -28,6 +44,4 @@ let g:NERDTreeDirArrows=1
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " nmap <leader>ne :NERDTree<cr>
-nmap <leader>nt :NERDTreeToggle<cr>
-map <F2> :NERDTreeToggle<cr>
 let NERDTreeIgnore = ['\.pyc$','\.o$']

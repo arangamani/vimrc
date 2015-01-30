@@ -10,7 +10,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-endwise'
@@ -27,9 +27,6 @@ Bundle 'majutsushi/tagbar'
 Bundle 'bling/vim-airline'
 Bundle 'xolox/vim-notes'
 Bundle 'jistr/vim-nerdtree-tabs'
-
-" use ag instead of ack
-let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:notes_directories = ['~/Google Drive/Notes']
 let g:notes_suffix = '.txt'

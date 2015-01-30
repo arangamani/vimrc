@@ -25,6 +25,16 @@ Bundle 'gcmt/taboo.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 Bundle 'bling/vim-airline'
+Bundle 'xolox/vim-notes'
+Bundle 'jistr/vim-nerdtree-tabs'
+
+" use ag instead of ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+let g:notes_directories = ['~/Google Drive/Notes']
+let g:notes_suffix = '.txt'
+
+Bundle 'xolox/vim-misc'
 
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -41,7 +51,7 @@ map <C-e> :CtrlPMRUFiles<CR>
 Bundle 'scrooloose/nerdtree'
 let g:NERDTreeDirArrows=1
 
-autocmd vimenter * if !argc() | NERDTree | endif
+" autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " nmap <leader>ne :NERDTree<cr>
 let NERDTreeIgnore = ['\.pyc$','\.o$']

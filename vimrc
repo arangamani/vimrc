@@ -115,21 +115,21 @@ set ttyfast
 set ttyscroll=3
 set lazyredraw " to avoid scrolling problems
 set re=1
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
+set guifont=PragmataPro\ for\ Powerline:h14
 
 if has("gui_running")
     set guioptions-=T "no toolbar for gui
     "set lines=30
     "set columns=80
     set cursorline
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
+    set guifont=PragmataPro\ for\ Powerline:h14
     colorscheme wombat
     if has("gui_gtk2")
     elseif has("gui_win32")
     else
         let do_syntax_sel_menu = 1|runtime! synmenu.vim
         set transparency=0
-        set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
+        set guifont=PragmataPro\ for\ Powerline:h14
     endif
 endif
 

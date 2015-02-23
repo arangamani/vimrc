@@ -151,6 +151,7 @@ autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Berksfile set filetype=ruby
+autocmd BufNewFile,BufRead *.rcl set filetype=rcl
 
 " Turn on autocomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete

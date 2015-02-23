@@ -20,6 +20,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-tbone'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rbenv'
 Bundle 'godlygeek/tabular'
 Bundle 'gcmt/taboo.vim'
 Bundle 'kchmck/vim-coffee-script'
@@ -37,7 +38,7 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 
 " Go support
-Bundle 'Blackrush/vim-gocode'
+Bundle 'fatih/vim-go'
 
 " ====== Ctrl P =======
 Bundle 'kien/ctrlp.vim'

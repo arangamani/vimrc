@@ -28,9 +28,23 @@ Bundle 'majutsushi/tagbar'
 Bundle 'bling/vim-airline'
 Bundle 'xolox/vim-notes'
 Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'dzeban/vim-log-syntax'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'jez/vim-superman'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'vim-scripts/AnsiEsc.vim'
+Bundle 'leafgarland/typescript-vim'
+
+"Html/Javascript/Angular
+Bundle 'burnettk/vim-angular'
+Bundle 'pangloss/vim-javascript'
+Bundle 'othree/javascript-libraries-syntax.vim'
+
 
 let g:notes_directories = ['~/Google Drive/Notes']
 let g:notes_suffix = '.txt'
+let g:notes_smart_quotes = 0
 
 Bundle 'xolox/vim-misc'
 
@@ -39,6 +53,28 @@ let g:airline_powerline_fonts = 1
 
 " Go support
 Bundle 'fatih/vim-go'
+Bundle 'nsf/gocode'
+Bundle 'dgryski/vim-godef'
+
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
+" Some nice mappings from vim-go: https://github.com/fatih/vim-go#mappings
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>e <Plug>(go-rename)
 
 " ====== Ctrl P =======
 Bundle 'kien/ctrlp.vim'

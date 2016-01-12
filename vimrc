@@ -19,6 +19,7 @@ syntax on
 set t_Co=256
 " Use the molokai colorscheme -- inspired by the TextMate version
 colorscheme molokai
+
 let mapleader = ","
 
 set number
@@ -71,7 +72,7 @@ set nobackup
 set noswapfile
 
 set wrap
-set textwidth=119
+" set textwidth=119
 set formatoptions=qrn1
 
 set formatoptions+=l
@@ -151,7 +152,7 @@ autocmd BufReadPost *.rtf silent %!unrtf --text "%"
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Berksfile set filetype=ruby
-autocmd BufNewFile,BufRead *.rcl set filetype=rcl
+autocmd BufNewFile,BufRead *.rcl set filetype=ruby
 
 " Turn on autocomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -208,6 +209,19 @@ set foldnestmax=10      " deepest fold is 10 levels
 set nofoldenable        " dont fold by default
 set foldlevel=1         " set default fold level to 1
 
+
+" Make these commonly mistyped commands still work
+command! WQ wq
+command! Wq wq
+command! Wqa wqa
+command! W w
+command! Q q
+
+" Use :C to clear hlsearch
+command! C nohlsearch
+
+" Force write readonly files using sudo
+command! WS w !sudo tee %
 
 " Rebind autocomplete to ctrl-space
 " inoremap <Nul> <C-x><C-o> 

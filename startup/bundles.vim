@@ -35,6 +35,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'vim-scripts/AnsiEsc.vim'
 Bundle 'leafgarland/typescript-vim'
+Bundle 'avakhov/vim-yaml'
 
 "Html/Javascript/Angular
 Bundle 'burnettk/vim-angular'
@@ -84,6 +85,7 @@ map <C-e> :CtrlPMRUFiles<CR>
 " ====== Nerd Tree =======
 Bundle 'scrooloose/nerdtree'
 let g:NERDTreeDirArrows=1
+let g:NERDTreeShowHidden=1
 
 " autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

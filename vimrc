@@ -165,6 +165,7 @@ set showcmd
 set nocp
 filetype on
 au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.vhost set filetype=nginx
 
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent expandtab shiftwidth=4 tabstop=4 softtabstop=4
